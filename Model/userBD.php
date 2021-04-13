@@ -13,7 +13,7 @@ function verifIdentBD($username, $password)
         $commande = $pdo->prepare($sql);
 
         $commande->bindParam(':pseudo', $username);
-        $commande->bindParam(':mdp', $username);
+        $commande->bindParam(':mdp', $password);
 
         $bool = $commande->execute();
         if ($bool) {
