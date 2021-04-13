@@ -13,7 +13,7 @@ function verifIdentBD($username, $password)
         $commande = $pdo->prepare($sql);
 
         $commande->bindParam(':pseudo', $username);
-        $commande->bindParam(':mdp', $username);
+        $commande->bindParam(':mdp', $password);
 
         $bool = $commande->execute();
         if ($bool) {
@@ -34,5 +34,29 @@ function verifIdentBD($username, $password)
         echo utf8_encode("Echec de select : " . $e->getMessage() . "\n");
         return false;
         // die(); // On arrête tout.
+    }
+}
+
+
+/**
+ * Création d'un compte dans l'application
+ */
+function newCorrectorAccount($nom, $prenom, $pseudo, $password){
+
+    require('./Model/connectSQL.php'); //$pdo est défini dans ce fichier
+    $sql = "INSERT INTO compte (nom, prenom, pseudoCompte,pwdCompte,adminCompte) VALUES (:nom,:prenom,:pseudo,:pwd,:adminC)";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':nom', $nom);
+        $commande->bindParam(':prenom', $prenom);
+        $commande->bindParam(':pseudo', $pseudo);
+        $commande->bindParam(':pwd', $password);
+        $commande->bindParam(':adminC', 0);
+
+        $bool =  $commande->execute();
+    } catch (PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        echo "Erreur insert";
+        return false;
     }
 }
