@@ -45,14 +45,18 @@ CREATE TABLE COPIE(
 idCopie INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
 idLot INTEGER,
 idEtudiant INTEGER,
-libelleDomaine VARCHAR(30),
-noteDomaine INTEGER, 
-resultat_domaine varchar(10),
 FOREIGN KEY (idLot) REFERENCES LOT(idLot),
-FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant),	
-FOREIGN KEY (libelleDomaine) REFERENCES DOMAINE(libelleDomaine)
+FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)	
 );
 	
+CREATE TABLE COPIE_DOMAINE(
+idCopie INTEGER NOT NULL,
+libelleDomaine VARCHAR(30) NOT NULL,
+noteDomaine INTEGER, 
+resultat_domaine varchar(10),
+FOREIGN KEY (idCopie) REFERENCES COPIE(idCopie),
+FOREIGN KEY (libelleDomaine) REFERENCES DOMAINE(libelleDomaine)
+);
 
 CREATE TABLE SALLE(
 designationSalle VARCHAR(30),
