@@ -82,3 +82,4 @@ FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)
 /** JEUX DE TESTS **/
 
 INSERT INTO compte(nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES ("admin","admin","admin","admin",1);
+INSERT INTO compte(nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES ("testCorrecteur","testCorrecteur","test","test",0);
