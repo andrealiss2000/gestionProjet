@@ -1,5 +1,7 @@
 CREATE TABLE COMPTE(
 idCompte INTEGER  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nom VARCHAR(20) NOT NULL,
+prenom VARCHAR(20) NOT NULL,
 pseudoCompte VARCHAR(15) NOT NULL,
 pwdCompte VARCHAR(40) NOT NULL,  
 adminCompte BOOLEAN NOT NULL
@@ -77,3 +79,6 @@ FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)
 );
 
 
+/** JEUX DE TESTS **/
+
+INSERT INTO compte(nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES ("admin","admin","admin","admin",1);

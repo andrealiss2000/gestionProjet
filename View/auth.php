@@ -4,10 +4,10 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     </head>
     <body>
-        <form action="./index.php?controle=auth&action=ident" method="POST">
+        <form action="./index.php?controle=authController&action=ident" method="POST">
             <div id="container">
                 <div id="spacer"></div>
-                <img id="logo" src="logo.png">
+                <img id="logo" src="./View/logo.png">
 
                 <div id="numetu" class="form-group" style="margin-top: 8vh;">
                     <label><b>Identifiant : </b> </label>
@@ -49,7 +49,7 @@ margin-right: auto;
 
 
 body {
-    background-image:url(backimg.png);
+    background-image:url('./View/backimg.png');
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

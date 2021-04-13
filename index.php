@@ -37,6 +37,7 @@ if (isset($_GET['controle']) & isset($_GET['action'])) {
 if(file_exists('./Controller/' . $controle . '.php')){
     require('./Controller/' . $controle . '.php');
 }
+var_dump(function_exists($action));
 if (function_exists($action)) {
     $action();
 } else {

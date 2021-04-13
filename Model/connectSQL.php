@@ -3,7 +3,7 @@
     $hostname = "localhost";
     $loginBD= "root";
     $base= "ufr_c2i";
-    $passBD="root";
+    $passBD="";
 
     try {
         $pdo = new PDO ("mysql:server=$hostname; dbname=$base", "$loginBD", "$passBD");

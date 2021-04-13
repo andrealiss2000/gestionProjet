@@ -10,7 +10,7 @@ function ident()
     if (count($_POST) == 0) {
         require("./View/auth.php");
     } else {
-        require("./modele/userBD.php");
+        require("./Model/userBD.php");
 
         if (verifIdentBD($username, $password)) {
 
