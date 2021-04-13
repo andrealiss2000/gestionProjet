@@ -5,7 +5,7 @@ prenom VARCHAR(20) NOT NULL,
 pseudoCompte VARCHAR(15) NOT NULL,
 pwdCompte VARCHAR(40) NOT NULL,  
 adminCompte BOOLEAN NOT NULL
-);
+); /* AJOUTER UN PARAMETRE pour mettre un minimum de caractère (de 2) à l'id des comptes */ 
 
 CREATE TABLE LOT(
 idLot INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
