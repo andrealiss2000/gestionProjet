@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);  ini_set("display_errors", 1);
 /**
  * Username : login ou email
  * Password : mot de passe en clair (pas la version hasher)
@@ -61,19 +61,19 @@ function verifIdentBD($username, $password)
 /**
  * Création d'un compte dans l'application
  */
-function newCorrectorAccount($nom, $prenom, $pseudo, $password){
+function newCorrectorAccount($nom, $prenom, $pseudo, $password,$admin){
 
     require('./Model/connectSQL.php'); //$pdo est défini dans ce fichier
-    $sql = "INSERT INTO compte (nom, prenom, pseudoCompte,pwdCompte,adminCompte) VALUES (:nom,:prenom,:pseudo,:pwd,:adminC)";
+    $sql = "INSERT INTO compte (nom, prenom, pseudoCompte,pwdCompte,adminCompte) VALUES (:nom,:prenom,:pseudo,:pwd,0)";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':nom', $nom);
         $commande->bindParam(':prenom', $prenom);
         $commande->bindParam(':pseudo', $pseudo);
         $commande->bindParam(':pwd', $password);
-        $commande->bindParam(':adminC', 0);
 
         $bool =  $commande->execute();
+        var_dump($bool);
     } catch (PDOException $e) {
         echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
         echo "Erreur insert";

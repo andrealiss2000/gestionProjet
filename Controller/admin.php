@@ -19,6 +19,7 @@ function newAccount()
     $prenom =  isset($_POST['prenom']) ? (htmlspecialchars($_POST['prenom'])) : '';
     $pseudo =  isset($_POST['pseudo']) ? (htmlspecialchars($_POST['pseudo'])) : '';
     $password =  isset($_POST['password']) ? ($_POST['password']) : '';
+    $admin=0;
 
     $error = "";
 
@@ -28,7 +29,8 @@ function newAccount()
 
     } else {
         require("./Model/userBD.php");
-        if(newCorrectorAccount($nom, $prenom, $pseudo, $password)){
+        if(newCorrectorAccount($nom, $prenom, $pseudo, $password, $admin)){
+            require("./View/admin.php");
             $infoMessage = "Création du compte terminée";
         }
     }
