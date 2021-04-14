@@ -64,16 +64,23 @@ function verifIdentBD($username, $password)
 function newCorrectorAccount($nom, $prenom, $pseudo, $password,$admin){
 
     require('./Model/connectSQL.php'); //$pdo est défini dans ce fichier
-    $sql = "INSERT INTO compte (nom, prenom, pseudoCompte,pwdCompte,adminCompte) VALUES (:nom,:prenom,:pseudo,:pwd,0)";
+    $sql = "INSERT INTO compte (nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES (:nom, :prenom, :pseudo, :pwd, 0)";
     try {
         $commande = $pdo->prepare($sql);
         $commande->bindParam(':nom', $nom);
         $commande->bindParam(':prenom', $prenom);
         $commande->bindParam(':pseudo', $pseudo);
         $commande->bindParam(':pwd', $password);
-
+        
         $bool =  $commande->execute();
-        var_dump($bool);
+        
+        if($bool){
+            return true;
+        } else{
+            die('execute() failed: ' . htmlspecialchars($commande->error));
+            return false;
+        } 
+       // var_dump($bool);
     } catch (PDOException $e) {
         echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
         echo "Erreur insert";

@@ -7,6 +7,7 @@
 
     try {
         $pdo = new PDO ("mysql:server=$hostname; dbname=$base", "$loginBD", "$passBD");
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // echo "Succes";
     }
 

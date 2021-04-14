@@ -31,7 +31,19 @@ function newAccount()
         require("./Model/userBD.php");
         if(newCorrectorAccount($nom, $prenom, $pseudo, $password, $admin)){
             require("./View/admin.php");
-            $infoMessage = "Création du compte terminée";
-        }
+            function_alert("Création du compte terminée");
+        }else {
+            function_alert("Echec de création du compte correcteur");
+            require("./View/admin.php");}
+
     }
+}
+
+function function_alert($msg) {
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
+
+
+function importExcelFile(){
+    
 }
