@@ -1,5 +1,6 @@
 <?php 
-
+use Phppot\DataSource;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 /**
  * Récupértion de la page d'accueil d'un admin
@@ -45,5 +46,45 @@ function function_alert($msg) {
 
 
 function importExcelFile(){
+   // If you need to parse XLS files, include php-excel-reader
+	require('./import-excel/php-excel-reader/excel_reader2.php');
+
+	require('./import-excel/SpreadsheetReader.php');
+    require("./Model/userBD.php");
+
+
+    if (isset($_POST["import"])) {
+
+        $allowedFileType = [
+            'application/vnd.ms-excel',
+            'text/xls',
+            'text/xlsx',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        ];
     
+        if (in_array($_FILES["file"]["type"], $allowedFileType)) {
+    
+            $targetPath = './import-excel/uploads/' . $_FILES['file']['name'];
+            move_uploaded_file($_FILES['file']['tmp_name'], $targetPath);
+
+            $Reader = new SpreadsheetReader('./import-excel/uploads/etudiants.xlsx');
+            foreach ($Reader as $Row)
+            {
+                $id=$Row[0];
+                $nom=$Row[1];
+                $prenom=$Row[2];
+                $grpTD=$Row[3];
+                createStudent($id, $nom, $prenom, $grpTD);
+            }
+            function_alert("Les données ont bien été importées");
+            require("./View/admin.php");
+        
+            
+        }
+    } else {
+        $type = "error";
+        $message = "Invalid File Type. Upload Excel File.";
+    }    
+
+
 }

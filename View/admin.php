@@ -6,7 +6,16 @@
     <body>
         <div class="wrapper">
             <div id="import">
-                <button type="submit" id="btn" class="btn btn-primary">Importer Excel</button>
+                <form action="./index.php?controle=admin&action=importExcelFile" method="post"
+                        name="frmExcelImport" id="frmExcelImport" enctype="multipart/form-data">
+                        <div>
+                            <input type="file" name="file" id="file" accept=".xls,.xlsx">
+                            <button type="submit" id="btn" name="import" class="btn btn-primary">Importer Excel</button>
+                    
+                        </div>
+            
+                </form>
+               
                 <p>Récupérer les informations des étudiants</p>
             </div>
 
@@ -153,6 +162,25 @@ h1{
 }
 
 #btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2rem;
+    width: 40%;
+    font-size: 22px;
+    position:relative;
+    margin-top:3rem;
+}
+
+#file{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    margin-top:1rem;
+
+}
+#myFile{
     display: block;
     margin-left: auto;
     margin-right: auto;
