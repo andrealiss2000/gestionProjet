@@ -7,18 +7,19 @@ pwdCompte VARCHAR(40) NOT NULL,
 adminCompte BOOLEAN NOT NULL
 ); /* AJOUTER UN PARAMETRE pour mettre un minimum de caractère (de 2) à l'id des comptes */ 
 
+
+CREATE TABLE VAGUE(
+idVague INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+horaire DATE
+);
+
+
 CREATE TABLE LOT(
 idLot INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
 idCompte INTEGER,
 idVague INTEGER,
 FOREIGN KEY (idCompte) REFERENCES COMPTE(idCompte),
 FOREIGN KEY (idVague) REFERENCES VAGUE (idVague)
-);
-
-
-CREATE TABLE VAGUE(
-idVague INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-horaire DATE
 );
 
 
@@ -83,3 +84,13 @@ FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)
 
 INSERT INTO compte(nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES ("admin","admin","admin","admin",1);
 INSERT INTO compte(nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES ("testCorrecteur","testCorrecteur","test","test",0);
+
+insert into etudiant(nom, prenom, resultat_final, numTD) values("yupi", "v", null, '2');
+insert into etudiant(nom, prenom, resultat_final, numTD) values("daran", "vamos", null, '2');
+
+insert into vague(horaire) values(2021-04-15);
+
+insert into lot(idCompte, idVague) values(2, 1);
+
+insert into copie(idLot, idEtudiant) values(1, 1);
+insert into copie(idLot, idEtudiant) values(1, 2);
