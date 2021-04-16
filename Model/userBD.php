@@ -71,6 +71,36 @@ function newCorrectorAccount($nom, $prenom, $pseudo, $password,$admin){
 }
 
 
+function getStudentDetails($studentId){
+
+     
+    require('./Model/connectSQL.php'); //$pdo est défini dans ce fichier
+    $sql = "SELECT L.idVague,C.nom, C.prenom from etudiant E INNER JOIN copie ON 
+    copie.idEtudiant = E.idEtudiant INNER JOIN lot L ON L.idLot = copie.idLot INNER JOIN compte C
+    ON L.idCompte = C.idCompte WHERE E.idEtudiant=:id";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':id', $studentId);
+        $bool =  $commande->execute();
+        
+        if($bool){
+            $resultat = $commande->fetchAll(PDO::FETCH_ASSOC); 
+            if (count($resultat) > 0) {
+                return $resultat;
+            }
+            
+        } else{
+            die('execute() failed: ' . htmlspecialchars($commande->error));
+            return false;
+        } 
+    } catch (PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        echo "Erreur insert";
+        return false;
+    }
+
+}
+
 
 /**
  * Création d'un étudiant 
@@ -419,9 +449,10 @@ function rechercherEtudiant($studentId){
 
      
     require('./Model/connectSQL.php'); //$pdo est défini dans ce fichier
-    $sql = "SELECT nom, prenom, numTD from etudiant";
+    $sql = "SELECT nom, prenom, numTD from etudiant WHERE idEtudiant=:id";
     try {
         $commande = $pdo->prepare($sql);
+        $commande->bindParam(':id', $studentId);
         $bool =  $commande->execute();
         
         if($bool){

@@ -13,6 +13,7 @@ function adminDashboard()
 function searchStudent(){
 
     $studentId =  isset($_POST['studentId']) ? (htmlspecialchars($_POST['studentId'])) : '';
+    $_SESSION['studentId'] = $studentId;
 
     if (count($_POST) == 0) {
         $error="Vous devez saisir les informations nécessaires";
@@ -20,8 +21,36 @@ function searchStudent(){
     } else {
         require("./Model/userBD.php");
         $student = rechercherEtudiant($studentId);
+        if($student != null){
+            $nom=$student[0]['nom'];
+            $prenom=$student[0]['prenom'];
+            $numTD=$student[0]['numTD'];
+            require("./View/admin.php");
+        }
+      
     }
        
+
+
+}   
+
+function detailsStudent(){
+    $studentId =  isset( $_SESSION['studentId']) ? (htmlspecialchars($_SESSION['studentId'])) : '';
+    if ($studentId == null) {
+        $error="Erreur";
+        echo($error);
+
+    } else {
+        require("./Model/userBD.php");
+        $student = getStudentDetails($studentId);
+        $vagueStudent=$student[0]['idVague'];
+        $nom=$student[0]['nom'];
+        $prenom=$student[0]['prenom'];
+        $nomPrenomCorrecteur=$prenom . ' ' .  $nom;
+        require("./View/detailsStudent.php");
+    }
+       
+    
 
 
 }

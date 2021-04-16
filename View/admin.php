@@ -50,7 +50,7 @@
                 <div id="find"> 
                     <input type="name" id="form-find" name="studentId" class="form-control" placeholder="&#xF002; Rechercher élève" style="font-family:Arial, FontAwesome">
                     <button type="submit" id="btn" class="btn btn-primary">Rechercher</button>
-                        
+            </form>
                     <div id="table">
                         <table class="table table-striped">
                             <thead>
@@ -63,10 +63,10 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <th scope="row"></th>
-                                <td style="height: 40px; overflow:hidden;"></td>
-                                <td></td>
-                                <td></td>
+                                <th scope="row"><?php if(isset($nom)) echo($nom) ?></th>
+                                <td style="height: 40px; overflow:hidden;"><?php if(isset($prenom)) echo($prenom) ?></td>
+                                <td><?php if(isset($numTD)) echo($numTD) ?></td>
+                                <td><?php if(isset($nom)) {?> <form action="./index.php?controle=admin&action=detailsStudent" method="POST"><button id="btnDetails" name="studentId"  class="btn btn-primary">Détails</button></form> <?php } ?></td>
                             </tr>
                             <tr>
                                 <th scope="row"></th>
@@ -120,7 +120,7 @@
                         </table>
                     </div>
                 </div>
-            </form>
+           
 
             
         </div>
@@ -175,6 +175,15 @@ h1{
     font-size: 22px;
     position:relative;
     margin-top:3rem;
+}
+
+#btnDetails{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+    font-size: 22px;
+    position:relative;
 }
 
 #file{
