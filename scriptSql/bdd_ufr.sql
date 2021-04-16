@@ -3,7 +3,8 @@ CREATE TABLE Compte(
    id_compte INT,
    mdp_compte VARCHAR(50),
    type_compte LOGICAL,
-   PRIMARY KEY(num_compte)
+   PRIMARY KEY(num_compte), 
+   adminCompte BOOLEAN NOT NULL
 );
 
 CREATE TABLE Vague(
@@ -89,14 +90,6 @@ FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)
 
 
 /** JEUX DE TESTS **/
-
-CREATE TABLE Compte(
-   num_compte INT,
-   id_compte INT,
-   mdp_compte VARCHAR(50),
-   type_compte LOGICAL,
-   PRIMARY KEY(num_compte)
-);
 
 INSERT INTO compte(num_compte, id_compte, mdp_compte, type_compte, adminCompte) VALUES ("admin","admin","admin","admin",1);
 INSERT INTO compte(num_compte, id_compte, mdp_compte, type_compte, adminCompte) VALUES ("testCorrecteur","testCorrecteur","test","test",0);
