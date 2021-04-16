@@ -84,3 +84,39 @@ FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)
 
 INSERT INTO compte(nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES ("admin","admin","admin","admin",1);
 INSERT INTO compte(nom, prenom, pseudoCompte, pwdCompte, adminCompte) VALUES ("testCorrecteur","testCorrecteur","test","test",0);
+INSERT INTO vague (horaire) VALUES (STR_TO_DATE('2021-04-28 08:00', '%Y-%m-%d %h:%i'));
+INSERT INTO vague (horaire) VALUES (STR_TO_DATE('2021-04-28 10:00', '%Y-%m-%d %h:%i'));
+INSERT INTO vague (horaire) VALUES (STR_TO_DATE('2021-04-28 12:00', '%Y-%m-%d %h:%i'));
+
+
+INSERT INTO salle (designationSalle, lieu, etage, batiment, capaciteOrdinateur) VALUE ("B2-15", "Paris", "2", "Bleriot", 25);
+INSERT INTO salle (designationSalle, lieu, etage, batiment, capaciteOrdinateur) VALUE ("B2-14", "Paris", "2", "Bleriot", 25);
+
+INSERT INTO domaine (libelleDomaine) VALUES
+('D1'),
+('D2'),
+('D3'),
+('D4'),
+('D5');
+
+INSERT INTO sous_domaine (libelleSousDomaine, libelleDomaine) VALUES
+('D11', 'D1'),
+('D12', 'D1'),
+('D13', 'D1'),
+('D14', 'D1'),
+('D21', 'D2'),
+('D22', 'D2'),
+('D23', 'D2'),
+('D24', 'D2'),
+('D31', 'D3'),
+('D32', 'D3'),
+('D33', 'D3'),
+('D34', 'D3'),
+('D35', 'D3'),
+('D41', 'D4'),
+('D42', 'D4'),
+('D43', 'D4'),
+('D44', 'D4'),
+('D51', 'D5'),
+('D52', 'D5'),
+('D53', 'D5');

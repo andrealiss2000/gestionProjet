@@ -45,78 +45,83 @@
                     <button type="submit" id="btn" class="btn btn-primary">Créer</button>
                 </div>
             </form>
+            <form action="./index.php?controle=admin&action=searchStudent" method="POST">
 
-            <div id="find"> 
-                <input type="name" id="form-find" class="form-control" placeholder="&#xF002; Rechercher élève" style="font-family:Arial, FontAwesome">
-                <div id="table">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Prénom</th>
-                            <th scope="col">Groupe de TD</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div id="find"> 
+                    <input type="name" id="form-find" name="studentId" class="form-control" placeholder="&#xF002; Rechercher élève" style="font-family:Arial, FontAwesome">
+                    <button type="submit" id="btn" class="btn btn-primary">Rechercher</button>
+                        
+                    <div id="table">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Groupe de TD</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+            </form>
+
             
         </div>
     </body>
