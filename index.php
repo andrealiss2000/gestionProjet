@@ -4,7 +4,6 @@ session_start();
 if (isset($_GET['controle']) & isset($_GET['action'])) {
     $controle = $_GET['controle'];
     $action = $_GET['action'];
-
     //actions vers les pages principales de l'application
     if ($action == "adminDashboard" || $action == "correctionCopies") {
         if (!isset($_SESSION["user_id"])) { //si user pas connecté alors on le renvoie vers la page d'authentification
@@ -35,6 +34,7 @@ if (isset($_GET['controle']) & isset($_GET['action'])) {
 if(file_exists('./Controller/' . $controle . '.php')){
     require('./Controller/' . $controle . '.php');
 }
+
 if (function_exists($action)) {
     $action();
 } else {

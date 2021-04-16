@@ -16,7 +16,7 @@ function ident()
 
             //Faire la requete pour mettre BConnect a true
             // echo "Connected";
-            // var_dump($_SESSION);
+            
             if($_SESSION["user_type"] == "admin"){
                 header("Location: ./index.php?controle=admin&action=adminDashboard");
             }else if($_SESSION["user_type"] == "correcteur"){
