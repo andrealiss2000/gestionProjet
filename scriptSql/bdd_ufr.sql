@@ -63,7 +63,7 @@ CREATE TABLE Copie(
    FOREIGN KEY(num_lot_copie) REFERENCES Lot(num_lot_copie)
 );
 
-CREATE TABLE Etudiant_salle(
+CREATE TABLE etudiant_salle(
    num_etudiant INT,
    designation INT,
    PRIMARY KEY(num_etudiant, designation),
