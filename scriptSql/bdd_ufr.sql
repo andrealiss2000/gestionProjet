@@ -80,14 +80,6 @@ CREATE TABLE copie_domaine(
    FOREIGN KEY(num_sous_domaine) REFERENCES Sous_domaine(num_sous_domaine)
 );
 
-CREATE TABLE ETUDIANT_SALLE(
-designationSalle VARCHAR(60),
-idEtudiant VARCHAR(30),
-PRIMARY KEY(designationSalle,idEtudiant),
-FOREIGN KEY (designationSalle) REFERENCES SALLE(designationSalle),
-FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)
-);
-
 
 /** JEUX DE TESTS **/
 
