@@ -69,3 +69,38 @@ function newCorrectorAccount($nom, $prenom, $pseudo, $password,$admin){
         return false;
     }
 }
+
+
+
+/**
+ * Création d'un étudiant 
+ */
+function createStudent($id, $nom, $prenom, $grpTD){
+
+    require('./Model/connectSQL.php'); //$pdo est défini dans ce fichier
+    $sql = "INSERT INTO etudiant (idEtudiant, nom, prenom, numTD) VALUES (:id, :nom, :prenom, :grpTD)";
+    try {
+        $commande = $pdo->prepare($sql);
+        $commande->bindParam(':id', $id);
+        $commande->bindParam(':nom', $nom);
+        $commande->bindParam(':prenom', $prenom);
+        $commande->bindParam(':grpTD', $grpTD);
+        
+        $bool =  $commande->execute();
+        
+        if($bool){
+            return true;
+        } else{
+            die('execute() failed: ' . htmlspecialchars($commande->error));
+            return false;
+        } 
+       // var_dump($bool);
+    } catch (PDOException $e) {
+        echo utf8_encode("Echec de insert : " . $e->getMessage() . "\n");
+        echo "Erreur insert";
+        return false;
+    }
+
+}
+
+    

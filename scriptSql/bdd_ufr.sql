@@ -24,12 +24,13 @@ horaire DATE
 
 
 CREATE TABLE ETUDIANT(
-idEtudiant INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-nom VARCHAR(60) NOT NULL, 
-prenom VARCHAR(60) NOT NULL,
-resultat_final VARCHAR(10),
-numTD VARCHAR(10)
+    idEtudiant VARCHAR(30) NOT NULL,
+    nom VARCHAR(60) NOT NULL, 
+    prenom VARCHAR(60) NOT NULL,
+    resultat_final VARCHAR(10),
+    numTD VARCHAR(10)
 );
+
 
 CREATE TABLE DOMAINE(
 libelleDomaine VARCHAR(250),
@@ -46,7 +47,7 @@ FOREIGN KEY (libelleDomaine) REFERENCES DOMAINE(libelleDomaine)
 CREATE TABLE COPIE(
 idCopie INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
 idLot INTEGER,
-idEtudiant INTEGER,
+idEtudiant VARCHAR(30),
 FOREIGN KEY (idLot) REFERENCES LOT(idLot),
 FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)	
 );
@@ -71,7 +72,7 @@ PRIMARY KEY(designationSalle)
 
 CREATE TABLE ETUDIANT_SALLE(
 designationSalle VARCHAR(60),
-idEtudiant INTEGER,
+idEtudiant VARCHAR(30),
 PRIMARY KEY(designationSalle,idEtudiant),
 FOREIGN KEY (designationSalle) REFERENCES SALLE(designationSalle),
 FOREIGN KEY (idEtudiant) REFERENCES ETUDIANT(idEtudiant)
