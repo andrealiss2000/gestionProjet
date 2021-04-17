@@ -18,10 +18,11 @@
                     </button>
                     <ul class="dropdown-menu">
                         <?php foreach($_SESSION["copies"] as $key=>$value): ?>
-                            <li class="etudiant" name=<?=$value['idCopie'];?> data-nom=<?=$value['nom'];?> data-prenom=<?=$value['prenom'];?> data-id=<?=$value['idEtudiant'];?>> <?= ucfirst($value["prenom"]) ?></li>
+                            <?php $idCopie=$value['idCopie']; ?>
+                            <li class="etudiant" data-idcopie=<?=$idCopie?> data-nom=<?=$value['nom'];?> data-prenom=<?=$value['prenom'];?> data-id=<?=$value['idEtudiant'];?>> <?= strtoupper ($value["nom"]) ?> <?= ucfirst($value["prenom"]) ?></li>
                         <?php endforeach; ?>
                     </ul>
-                    <input id="inputEtu" type="identifiant" class="form-control2" placeholder="">
+                    <input id="inputEtu" name="idCopie" type="identifiant" class="form-control2" placeholder="">
 
                 </div>
 
@@ -163,7 +164,8 @@
         console.log();
         $nom = $(this).data('nom');
         $prenom = $(this).data('prenom');
-        $('#inputEtu').val($nom.toUpperCase() + " " + $prenom.charAt(0).toUpperCase() + $prenom.substr(1).toLowerCase());
+        $idcopie = $(this).data('idcopie');
+        $('#inputEtu').val($idcopie);
         
     });
 </script>                            

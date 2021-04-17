@@ -8,21 +8,17 @@ function getStudents(){
             and copie.idLot=lot.idLot
             and lot.idCompte=:id;";
     //$sql2 = "SELECT * FROM etudiant, lot, copie WHERE lot.idCompte=:id AND copie.idLot=lot.idLot;";
-        try {
-            $_SESSION["oui"] = "teesrt";
+        try { 
             $commande2 = $pdo->prepare($sql2);
             $commande2->bindParam(':id', $user_id);
-            $bool2 = $commande2->execute();
-            $_SESSION["oui"] = "marche";
+            $bool2 = $commande2->execute(); 
             if ($bool2) {
                 $resultat2 = $commande2->fetchAll(PDO::FETCH_ASSOC); //tableau d'enregistrements
                 if (count($resultat2) > 0) {
                     //$_SESSION["copies"] = $resultat2[0]["idEtudiant"];
-                    $_SESSION["copies"] = $resultat2;
-                    $_SESSION["oui"] = $resultat2;
+                    $_SESSION["copies"] = $resultat2; 
                      return true;
-                }else{
-                    $_SESSION["oui"] = count($resultat2);
+                }else{ 
                     return false;
                 }
             }
@@ -45,14 +41,12 @@ function updateNote($note, $resultat, $idCopie, $domaine){
              ";
     //$sql2 = "SELECT * FROM etudiant, lot, copie WHERE lot.idCompte=:id AND copie.idLot=lot.idLot;";
         try {
-            $_SESSION["oui"] = "teesrt";
             $commande = $pdo->prepare($sql);
             $commande->bindParam(':note', $note);
             $commande->bindParam(':resultat', $resultat);
             $commande->bindParam(':idcopie', $idCopie);
             $commande->bindParam(':domaine', $domaine);
-            $bool = $commande->execute();
-            $_SESSION["oui"] = "marche";
+            $bool = $commande->execute(); 
             if ($bool) {
                 return true;
             }
