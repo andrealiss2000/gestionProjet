@@ -45,78 +45,83 @@
                     <button type="submit" id="btn" class="btn btn-primary">Créer</button>
                 </div>
             </form>
+            <form action="./index.php?controle=admin&action=searchStudent" method="POST">
 
-            <div id="find"> 
-                <input type="name" id="form-find" class="form-control" placeholder="&#xF002; Rechercher élève" style="font-family:Arial, FontAwesome">
-                <div id="table">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Prénom</th>
-                            <th scope="col">Groupe de TD</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td style="height: 40px; overflow:hidden;"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div id="find"> 
+                    <input type="name" id="form-find" name="studentId" class="form-control" placeholder="&#xF002; Rechercher élève" style="font-family:Arial, FontAwesome">
+                    <button type="submit" id="btn" class="btn btn-primary">Rechercher</button>
+            </form>
+                    <div id="table">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Groupe de TD</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row"><?php if(isset($nom)) echo($nom) ?></th>
+                                <td style="height: 40px; overflow:hidden;"><?php if(isset($prenom)) echo($prenom) ?></td>
+                                <td><?php if(isset($numTD)) echo($numTD) ?></td>
+                                <td><?php if(isset($nom)) {?> <form action="./index.php?controle=admin&action=detailsStudent" method="POST"><button id="btnDetails" name="studentId"  class="btn btn-primary">Détails</button></form> <?php } ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td style="height: 40px; overflow:hidden;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+           
+
             
         </div>
     </body>
@@ -170,6 +175,15 @@ h1{
     font-size: 22px;
     position:relative;
     margin-top:3rem;
+}
+
+#btnDetails{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+    font-size: 22px;
+    position:relative;
 }
 
 #file{
